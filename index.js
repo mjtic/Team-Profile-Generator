@@ -11,3 +11,8 @@ const fs = require("fs");
 //const Engineer = require(./lib)
 //const Intern = require(./lib)
 
+//question
+//inquire starts
+//manager prompt questions
+//menu
+//engineer/intern
