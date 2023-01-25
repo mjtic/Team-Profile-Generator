@@ -77,7 +77,7 @@ const addEmployeeMenu = [
         type: "list",
         name: "role",
         message: "What is the role in the company?",
-        choice: ['Engineer','Intern'],
+        choices: ['Engineer','Intern'],
         validate: (userInput) => {
           if (userInput) {
             return true;
