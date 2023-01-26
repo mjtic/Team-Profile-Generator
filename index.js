@@ -3,7 +3,7 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 
 //Page creation:
-//const generateHTML = require("")
+const generateTemplate = require("./src/generateTemplate")
 
 //team profiles
 const Manager = require("./lib/Manager");
@@ -89,7 +89,7 @@ const addEmployee = () => {
       }
     });
 };
-addEmployee();
+// addEmployee();
 
 const addManager = (data) => {
   inquirer
@@ -191,29 +191,25 @@ const menuDisplay = () => {
       } else {
         console.log("Done creating a team!");
         console.log(teamProfileArray);
+   
       }
     });
 };
 
 // // TODO: Create a function to write README file
-// // function writeToFile(fileName, data) {
-// //     fs.writeFile (fileName, data, err =>{
-// //       err ? console.error(err) : console.log('Team profile generated successfully!')
-// //   })
-// //   }
+function writeToFile(fileName, data) {
+    fs.writeFile (fileName, data, err =>{
+      err ? console.error(err) : console.log('Team profile generated successfully!')
+  })
+  }
 
 // // TODO: Create a function to initialize app
-// function init() {
-//   inquirer.prompt(addManager).then((response) => {
-//     teamProfileArray.push(addManager);
-//     console.log(response),
-//     inquirer.prompt(addEmployeeMenu).then((response)=>{
-//       console.log(response)
-//     });
-//   //   writeToFile("", generateMarkDown(response));
-//   });
+function init() {
+  addEmployee()
+   
+  };
 
-// }
+  // writeToFile("", generateTemplate(response));
 
-// // Function call to initialize app
-// init();
+// Function call to initialize app
+init();
