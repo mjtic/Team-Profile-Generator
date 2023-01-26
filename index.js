@@ -89,7 +89,7 @@ const addEmployee = () => {
       }
     });
 };
-// addEmployee();
+// addManager function
 
 const addManager = (data) => {
   inquirer
@@ -191,7 +191,7 @@ const menuDisplay = () => {
       } else {
         console.log("Done creating a team!");
         console.log(teamProfileArray);
-   
+        writeToFile('.dist/team.html', );
       }
     });
 };
@@ -205,7 +205,10 @@ function writeToFile(fileName, data) {
 
 // // TODO: Create a function to initialize app
 function init() {
-  addEmployee()
+  addEmployee();
+  // addEmployee().then((response)=>{
+  //   console.log(response);
+  // })
    
   };
 
