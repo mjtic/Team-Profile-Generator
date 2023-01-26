@@ -205,14 +205,8 @@ function writeToFile(fileName, data) {
 
 // // TODO: Create a function to initialize app
 function init() {
-  addEmployee();
-  // addEmployee().then((response)=>{
-  //   console.log(response);
-  // })
-   
+  addEmployee();   
   };
-
-  // writeToFile("", generateTemplate(response));
 
 // Function call to initialize app
 init();

@@ -14,6 +14,12 @@
 //function loops team array and outputs cards based on the role.
 
 
+// TODO: Create a function to generate markdown for HTML
+function generateTemplate(teamProfileArray){
+    return ``
+}
+
+
 
 
 
