@@ -48,14 +48,14 @@ const addEmployee = () => {
         type: "input",
         name: "email",
         message: "Please enter the email",
-        validate: (userInput) => {
-          if (userInput) {
-            return true;
-          } else {
-            console.log("Please enter the email!");
-            return false;
-          }
-        },
+        // validate: (userInput) => {
+        //   if (userInput) {
+        //     return true;
+        //   } else {
+        //     console.log("Please enter the email!");
+        //     return false;
+        //   }
+        // },
       },
       {
         type: "list",
