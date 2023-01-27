@@ -1,9 +1,10 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
-const path = require("path");
-const DIST = path.resolve(__dirname, "dist");
-const outputPath = path.join(DIST, "team.html");
+// const path = require("path");
+// const DIST = path.resolve(__dirname, "dist");
+// const outputPath = path.join(DIST, "team.html");
+
 //Page creation:
 const generateTemplate = require("./src/generateTemplate");
 
@@ -193,7 +194,10 @@ const menuDisplay = () => {
       } else {
         console.log("Done creating a team!");
         console.log(teamProfileArray);
-        fs.writeFileSync(outputPath, generateTemplate(teamProfileArray));
+        fs.writeFileSync(
+          "./dist/team.html",
+          generateTemplate(teamProfileArray)
+        );
       }
     });
 };

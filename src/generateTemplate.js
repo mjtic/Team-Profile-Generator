@@ -92,7 +92,7 @@ const createInternCard = (intern) => {
     `
 } 
 
-generateTemplate = (data) =>{
+const generateTemplate = (data) =>{
     
     // cards array 
     teamCardsArray = [];
