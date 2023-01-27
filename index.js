@@ -1,9 +1,11 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
-
+const path = require("path");
+const DIST = path.resolve(__dirname, "dist");
+const outputPath = path.join(DIST, "team.html");
 //Page creation:
-const generateTemplate = require("./src/generateTemplate")
+const generateTemplate = require("./src/generateTemplate");
 
 //team profiles
 const Manager = require("./lib/Manager");
@@ -19,28 +21,28 @@ const addEmployee = () => {
         type: "input",
         name: "name",
         message: "Please enter the your name",
-        validate: (userInput) => {
-          if (userInput) {
-            return true;
-          } else {
-            console.log("Please enter the your name!");
-            return false;
-          }
-        },
+        // validate: (userInput) => {
+        //   if (userInput) {
+        //     return true;
+        //   } else {
+        //     console.log("Please enter the your name!");
+        //     return false;
+        //   }
+        // },
       },
 
       {
         type: "input",
         name: "id",
         message: "Please enter the ID",
-        validate: (userInput) => {
-          if (isNaN(userInput) || userInput.trim().length === 0) {
-            console.log("Please enter a valid ID!");
-            return false;
-          } else {
-            return true;
-          }
-        },
+        // validate: (userInput) => {
+        //   if (isNaN(userInput) || userInput.trim().length === 0) {
+        //     console.log("Please enter a valid ID!");
+        //     return false;
+        //   } else {
+        //     return true;
+        //   }
+        // },
       },
       {
         type: "input",
@@ -60,14 +62,14 @@ const addEmployee = () => {
         name: "role",
         message: "Please select your role ",
         choices: ["Manager", "Engineer", "Intern"],
-        validate: (userInput) => {
-          if (userInput) {
-            return true;
-          } else {
-            console.log("Please choose the role of the employee!");
-            return false;
-          }
-        },
+        // validate: (userInput) => {
+        //   if (userInput) {
+        //     return true;
+        //   } else {
+        //     console.log("Please choose the role of the employee!");
+        //     return false;
+        //   }
+        // },
       },
     ])
     .then((userInput) => {
@@ -98,14 +100,14 @@ const addManager = (data) => {
         type: "input",
         name: "officeNumber",
         message: "Please enter the office number of your team manager",
-        validate: (userInput) => {
-          if (isNaN(userInput) || userInput.trim().length === 0) {
-            console.log("Please enter a valid number for office number!");
-            return false;
-          } else {
-            return true;
-          }
-        },
+        // validate: (userInput) => {
+        //   if (isNaN(userInput) || userInput.trim().length === 0) {
+        //     console.log("Please enter a valid number for office number!");
+        //     return false;
+        //   } else {
+        //     return true;
+        //   }
+        // },
       },
     ])
     .then((userInput) => {
@@ -128,14 +130,14 @@ const addEngineer = (data) => {
         type: "input",
         name: "github",
         message: "Please enter your github username ",
-        validate: (userInput) => {
-          if (userInput) {
-            return true;
-          } else {
-            console.log("Please enter your github username of your engineer");
-            return false;
-          }
-        },
+        // validate: (userInput) => {
+        //   if (userInput) {
+        //     return true;
+        //   } else {
+        //     console.log("Please enter your github username of your engineer");
+        //     return false;
+        //   }
+        // },
       },
     ])
     .then((userInput) => {
@@ -157,14 +159,14 @@ const addIntern = (data) => {
         type: "input",
         name: "school",
         message: "Please enter your school username ",
-        validate: (userInput) => {
-          if (userInput) {
-            return true;
-          } else {
-            console.log("Please enter your school of your Intern");
-            return false;
-          }
-        },
+        // validate: (userInput) => {
+        //   if (userInput) {
+        //     return true;
+        //   } else {
+        //     console.log("Please enter your school of your Intern");
+        //     return false;
+        //   }
+        // },
       },
     ])
     .then((userInput) => {
@@ -191,22 +193,21 @@ const menuDisplay = () => {
       } else {
         console.log("Done creating a team!");
         console.log(teamProfileArray);
-        writeToFile('.dist/team.html', );
+        fs.writeFileSync(outputPath, generateTemplate(teamProfileArray));
       }
     });
 };
 
 // // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile (fileName, data, err =>{
-      err ? console.error(err) : console.log('Team profile generated successfully!')
-  })
-  }
+// function writeToFile(fileName, data) {
+//   fs.writeFileSync(fileName, data, (err) => {err? console.error(err): console.log("Team profile generated successfully!");
+//   });
+// }
 
 // // TODO: Create a function to initialize app
 function init() {
-  addEmployee();   
-  };
+  addEmployee();
+}
 
 // Function call to initialize app
 init();
