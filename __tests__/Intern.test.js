@@ -1,3 +1,4 @@
+//test code for intern (object, name, id, email, school)
 const Intern = require("../lib/Intern");
 
 test("Should create and return intern as an object", () => {

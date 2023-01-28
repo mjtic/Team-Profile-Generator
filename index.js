@@ -1,6 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+
+// path codes (just in case)
 // const path = require("path");
 // const DIST = path.resolve(__dirname, "dist");
 // const outputPath = path.join(DIST, "team.html");
@@ -92,8 +94,8 @@ const addEmployee = () => {
       }
     });
 };
-// addManager function
 
+// addManager function
 const addManager = (data) => {
   inquirer
     .prompt([
@@ -178,6 +180,7 @@ const addIntern = (data) => {
     });
 };
 
+//menu display function and fs.writeFileSync at the end of team creation.
 const menuDisplay = () => {
   inquirer
     .prompt([
@@ -201,12 +204,6 @@ const menuDisplay = () => {
       }
     });
 };
-
-// // TODO: Create a function to write README file
-// function writeToFile(fileName, data) {
-//   fs.writeFileSync(fileName, data, (err) => {err? console.error(err): console.log("Team profile generated successfully!");
-//   });
-// }
 
 // // TODO: Create a function to initialize app
 function init() {
